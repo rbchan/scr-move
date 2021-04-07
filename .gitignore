@@ -1,0 +1,11 @@
+# TeX
+*.log
+*.out
+*.toc
+*.pdf
+
+# R
+*.RData
+*.gzip
+
+
