@@ -1,0 +1,12 @@
+Package: scrmove
+Type: Package
+Title: SCR models with explicit movement processes
+Version: 0.1.1
+Date: 2020-07-26
+Author: Richard Chandler
+Maintainer: Richard Chandler <rchandler@warnell.uga.edu>
+Description: Inference for SCR-movement models. This package was built to assist with the analysis for the paper "". It is not meant to be used more generally.
+License: GPL (>=3)
+Depends: R (>= 3.5.0)
+Imports: Rcpp (>= 1.0.4.6)
+LinkingTo: Rcpp, RcppArmadillo
