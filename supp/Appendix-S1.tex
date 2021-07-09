@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+
+\usepackage[vmargin=1in,hmargin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage[parfill]{parskip}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{abstract}
+\usepackage{lineno}
+\usepackage{setspace}
+
+\hypersetup{pdfstartview={Fit},hidelinks}
+
+
+\newcommand{\bs}{{\bf s}}
+\newcommand{\bsi}{{\bf s}_i}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\bxj}{{\bf x}_j}
+\newcommand{\by}{{\bf y}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bui}{{\bf u}_i}
+\newcommand{\but}{{\bf u}_{t}}
+\newcommand{\buit}{{\bf u}_{it}}
+\newcommand{\buip}{{\bf u}_{i,t-1}}
+\newcommand{\ed}{\|\bx - \bx'\|}
+\newcommand{\cS}{\mathcal{S} }
+
+
+\title{Appendix S1 \\ Posterior distribution and Gibbs sampler \\ \it Modeling abundance, distribution, movement, and space
+  use with camera and telemetry data}
+\author{Richard B. Chandler$^1$\footnote{Corresponding author: rchandler@warnell.uga.edu}, Daniel A. Crawford$^2$, Elina P. Garrison$^3$, \\
+  Karl V. Miller$^1$, Michael J. Cherry$^2$}
+
+\begin{document}
+
+
+
+\maketitle
+
+\vspace{12pt}
+
+\begin{description}%[labelindent=1pt]%[leftmargin=1cm]%,labelwidth=\widthof{\bfseries Example:}]
+%  \large
+\item[$^1$] Warnell School of Forestry and Natural Resources, University of Georgia %\\
+\item[$^2$] Caesar Kleberg Wildlife Research Institute at Texas A\&M University-Kingsville %\\
+\item[$^3$] Florida Fish and Wildlife Conservation Commission %\\
+\end{description}
+
+\clearpage
+
+\section*{Posterior distribution}
+
+The posterior distribution of the joint spatial capture-recapture
+movement model (with constant $\sigma$ and data augmentation) is  
+
+\begin{multline}
+  p(p, \lambda_0, \sigma_{\mathrm det}, \rho, \sigma, \{\bu_{it}\}, \{\bs_i\}, \{z_i\}, \psi | {\bm y}^{\rm cap},{\bm y}) \propto \\
+  \left\{\prod_{i=1}^M p(y_i^{\rm cap}|z_i, p)
+    \left\{\prod_{t=1}^T\left\{\prod_{j=1}^Jp(y_{ijt}|z_i,\lambda_0,\sigma_{\rm det},\buit)
+    \right\}p(\buit|\bu_{i,t-1},\bsi,\rho,\sigma)\right\} %\times \\
+  p(\bsi)p(z_i|\psi)\right\} \times \\
+p(p)p(\lambda_0)p(\sigma_{\rm det})p(\rho)p(\sigma)p(\psi) \\
+  \label{eq:post}
+\end{multline}
+
+where
+\[
+  p(y_i^{\rm cap}|z_i, p) = \mathrm{Bern}(y_i|z_i\times p)
+\]
+\[
+  p(y_{ijt}|z_i,\lambda_0,\sigma_{\rm det},\buit) = \mathrm{Pois}(y_{ijt}|z_i \times \lambda^{\rm det}_{ijt})
+\]
+\[
+  p(\buit|\bu_{i,t-1},\bsi,\rho,\sigma) =
+  \begin{cases}
+    \mathrm{Norm}(\buit|\bsi+(\buip-\bsi)\rho, \mathrm{diag}(\sigma^2
+    - \sigma^2\rho^2)) & \mathrm{for}\quad t>1 \\
+    \mathrm{Norm}(\buit|\bsi, \mathrm{diag}(\sigma^2)) & \mathrm{for}\quad t=1 \\
+  \end {cases}
+\]
+\[
+  p(\bsi) = \mathrm{Unif}(\mathcal M)
+\]
+\[
+  p(z_i|\psi) = \mathrm{Bern}(z_i|\psi)
+\]
+and the other probability distributions are priors for the
+parameters. Note that some or all of the $\buit$ locations could be
+observed.  
+
+\clearpage
+
+\section*{Gibbs sampler}
+
+Sampling from the joint posterior is computationally challenging
+because of the latent movement paths for the $M-n$ augmented
+individuals. The burden can be reduced by marginalizing these latent
+paths, while retaining the activity centers $\{\bsi\}$. This is
+accomplished using Eq. 6 in the manuscript and the probability density:
+\[
+  p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i) = \mathrm{Bern}(0|\tilde{p}_i)
+\]
+The Gibbs sampler begins by initializing the unknown parameters and
+then sampling from the following full conditional distributions.
+
+Use Metropolis-Hastings (MH) to sample from:
+\[
+  p(\rho,\sigma|\cdot) \propto \left\{\prod_{i=1}^n\prod_{t=1}^T
+    p(\buit|\bu_{i,t-1},\bsi,\rho,\sigma)\right\}\left\{\prod_{i=n+1}^M p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i)\right\}p(\rho)p(\sigma)
+\]
+
+Use MH to sample from:
+\[
+  p(\lambda_0,\sigma_{\rm det}|\cdot) \propto \left\{\prod_{i=1}^n\prod_{j=1}^J\prod_{t=1}^T
+    p(y_{ijt}|z_i,\lambda_0,\sigma_{\rm det},\buit)\right\}\left\{\prod_{i=n+1}^M
+    p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i)\right\}p(\lambda_0)p(\sigma_{\rm det})
+\]
+
+Sample directly from
+\[
+  p(\psi|{\bm z}) = \mathrm{Beta}\left(1+\sum_{i=1}^M z_i, 1+M-\sum_{i=1}^M z_i\right)
+\]
+
+For $i=n+1,\dots,M$, use MH to sample from
+\[
+  p(z_i|\cdot) \propto p(y^{\rm cap}_i|z_i,p)
+    \left\{\prod_{j=1}^J\prod_{t=1}^T p(y_{ijt}|z_i,\lambda_0,\sigma_{\rm
+      det},\buit)\right\}
+  p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i)p(z_i|\psi)
+\]
+
+Use MH (or direct draw from beta full conditional) to sample from
+\[
+  p(p|\cdot) \propto \prod_{i=1}^M p(y^{\rm cap}_i|z_i \times p)p(p)
+\]
+
+For $i=1,\dots,n$, use MH to sample from
+\[
+  p(\bsi|\cdot) \propto p(\buit|\rho,\sigma,\bsi)p(\bsi)
+\]
+
+For $i=n+1,\dots,M$, use MH to sample from
+\[
+  p(\bsi|\cdot) \propto p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i)p(\bsi)
+\]
+
+For $i=1,\dots,n$ and for cases where $\buit$ is not observed, use MH to sample from
+\[
+  p(\buit|\cdot) \propto
+  p(\bu_{i,t+1}|\bu_{i,t},\bsi,\rho,\sigma)p(\bu_{i,t}|\bu_{i,t-1},\bsi,\rho,\sigma)\prod_{j=1}^J
+  p(y_{ijt}|\lambda_0,\sigma_{\rm det},\buit)
+\]
+
+\end{document}
+
+
