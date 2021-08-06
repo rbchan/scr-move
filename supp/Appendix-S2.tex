@@ -15,7 +15,7 @@
 \hypersetup{pdfstartview={Fit},hidelinks}
 
 
-\title{Appendix S2 \\ Simulation study accompanying the paper: \\ \it Modeling abundance, distribution, movement, and space
+\title{Ecology Appendix S2 \\ Simulation study accompanying the paper: \\ \it Modeling abundance, distribution, movement, and space
   use with camera and telemetry data}
 \author{Richard B. Chandler$^1$\footnote{Corresponding author: rchandler@warnell.uga.edu}, Daniel A. Crawford$^2$, Elina P. Garrison$^3$, \\
   Karl V. Miller$^1$, Michael J. Cherry$^2$}
@@ -45,8 +45,8 @@ described in the manuscript.
 The design and parameter values were chosen to resemble the estimates
 from the deer example in the manuscript. A uniform capture process was
 simulated to resemble aerial capture and transmitter
-deployment. The camera design in the simulation study were the same as
-in the deer example, with 60 cameras spaced by 200-500 m. We simulated
+deployment. The camera design in the simulation study was the same as
+in the deer example, with 60 cameras spaced by 200--500 m. We simulated
 90 occasions and used a fix rate of 1 location every 3
 occasions. Parameters (defined in the manuscript) were $N=100$,
 $p^{\mathrm cap}=0.25$, $\lambda_0=2$, $\sigma^{\mathrm det}=50$,
@@ -96,10 +96,11 @@ SCR+move model than for the mis-specified SCR0 model.
   \centering
   \includegraphics[width=0.5\textwidth, trim=0mm 15mm 0mm 15mm, clip]{../R/sims/bias-N.pdf} \\
   \includegraphics[width=0.5\textwidth, trim=0mm 15mm 0mm 15mm, clip]{../R/sims/cover-N.pdf} \\
-  \includegraphics[width=0.5\textwidth, trim=0mm 15mm 0mm 15mm, clip]{../R/sims/var-N.pdf}
+  \includegraphics[width=0.5\textwidth, trim=0mm 0mm 0mm 15mm, clip]{../R/sims/var-N.pdf}
   \caption{Bias, 95\% CI coverage, and variance of the posterior mode
-    as a point estimator of population size ($N$). The data generating
-    value was $N=100$. } 
+    as a point estimator of population size ($N$) under five values of
+    the parameter $\rho$ controlling autocorrelation in movement. The
+    data generating value of abundance was $N=100$. } 
   \label{fig:bias}
 \end{figure}
 

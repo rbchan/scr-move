@@ -4,6 +4,8 @@
 *.toc
 *.pdf
 *.aux
+*.bbl
+*.blg
 
 # R
 *.RData
