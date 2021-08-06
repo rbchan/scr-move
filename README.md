@@ -27,3 +27,7 @@ Data and code for the manuscript "Modeling abundance, distribution, movement, an
   * [Appendix-S2](supp/Appendix-S1.pdf)
 
 
+# DOI
+
+[![DOI](https://zenodo.org/badge/355622082.svg)](https://zenodo.org/badge/latestdoi/355622082)
+
