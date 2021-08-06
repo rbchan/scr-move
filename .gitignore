@@ -6,9 +6,11 @@
 *.aux
 *.bbl
 *.blg
+auto/
 
 # R
 *.RData
 *.gzip
 
+# Compressed
 *.zip
