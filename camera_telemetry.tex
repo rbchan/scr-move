@@ -70,6 +70,8 @@ Open Research: Data and code are publicly available at
 \url{https://github.com/rbchan/scr-move}. The current state of the
 repository is attached as a zip file.  
 
+Running Head: Combining camera and telemetry data
+
 
 \clearpage
 
@@ -77,50 +79,45 @@ repository is attached as a zip file.
 \linenumbers
 \doublespacing
 
-% Studies of animal abundance and distribution are often conducted independently of research on movement, despite the  important links between processes. Movement can cause rapid changes in spatial variation in density, and movement influences detection probability and hence estimates of abundance from inferential methods such as spatial capture-recapture (SCR). Technological developments including camera traps and GPS telemetry have opened new opportunities for studying animal demography and movement, yet statistical models for these two data types have largely developed along parallel tracks. We present a hierarchical model in which both datasets are conditioned on a movement process for a clearly-defined population. We fit the model to data from 60 camera traps and 23,572 GPS telemetry locations collected on 17 male white-tailed deer in the Big Cypress National Preserve, Florida, USA during July 2015. Telemetry data were collected on a 3-4 hr acquisition schedule, and we modeled the movement paths of all individuals in the region with a Ornstein-Uhlenbeck process that included individual-specific random effects. Two of the 17 deer with GPS collars were detected on cameras. An additional 20 male deer without collars were detected on cameras and individually identified based on their unique antler characteristics. Abundance was 126 (95\% CI: 88--177) in the 228 km$^2$ region--only slightly higher than estimated by a standard SCR model: 119 (84--168). The standard SCR model, however, was unable to describe individual heterogeneity in movement rates and space use as revealed by the joint model. Joint modeling allowed the telemetry data to inform the movement model and the SCR encounter model, while leveraging information in the camera data to inform abundance, distribution, and movement. Unlike most existing methods for population-level inference on movement, the joint SCR-movement model can yield unbiased inferences even if non-uniform sampling is used to deploy transmitters. Potential extensions of the model include the addition of resource selection parameters, and relaxation of the closure assumption when interest lies in survival and recruitment. These developments would contribute to the emerging holistic framework for the study of animal ecology---one that uses modern technology and spatio-temporal statistics to learn about interactions between behavior and demography.
-
 
 \begin{abstract}
-%\begin{onecolabstract}
-  \noindent \normalsize
-Studies of animal abundance and distribution are often conducted 
-  independently of research on movement, despite the
-  important links between processes. Movement can cause rapid
-  changes in spatial variation in density, and 
-  movement influences detection probability 
-  and hence estimates of abundance from inferential methods such
-  as spatial capture-recapture (SCR). Technological developments
-  including camera traps and GPS telemetry have opened new opportunities
-  for studying animal demography and movement, yet statistical
-  models for these two data types have largely developed along
-  parallel tracks. We present a hierarchical model in
-  which both datasets are conditioned on a movement process for a
-  clearly-defined population. We fit the model to data from 60 camera
-  traps and 23,572 GPS telemetry locations collected on 17 male
-  white-tailed deer in the Big Cypress
-  National Preserve, Florida, USA during July 2015. Telemetry data were
-  collected on a 3-4 hr acquisition schedule, and we
-  modeled the movement paths of all individuals in the region with a Ornstein-Uhlenbeck process that
-  included individual-specific random effects. Two of the 17 deer with
-  GPS collars were detected on cameras. An additional 20 male deer without
-  collars were detected on cameras and individually identified based
-  on their unique antler characteristics. Abundance was 126 (95\% CI:
-  88--177) in the 228 km$^2$ region---only slightly higher than
-  estimated by a standard SCR model: 119 (84--168). The standard SCR
-  model, however, was unable to describe individual heterogeneity in
-  movement rates and space use as revealed by the joint model. 
-  Joint modeling allowed the telemetry data to inform the movement
-  model and the SCR encounter model, while leveraging information in 
-  the camera data to inform abundance, distribution, and movement.
-  Unlike most existing methods for population-level inference on
-  movement, the joint SCR-movement model can yield unbiased
-  inferences even if non-uniform sampling is used to deploy
-  transmitters. Potential extensions of the model include the addition
-  of resource selection parameters, and relaxation of the closure
-  assumption when interest lies in survival and recruitment. These
-  developments would contribute to the emerging holistic framework for
-  the study of animal ecology---one that uses modern technology and
-  spatio-temporal statistics to learn about interactions between behavior and demography.
+\noindent \normalsize
+Studies of animal abundance and distribution are often conducted
+independently of research on movement, despite the important links
+between processes. Movement can cause rapid changes in spatial
+variation in density, and movement influences detection probability
+and hence estimates of abundance from inferential methods such as
+spatial capture-recapture (SCR). Technological developments including
+camera traps and GPS telemetry have opened new opportunities for
+studying animal demography and movement, yet statistical models for
+these two data types have largely developed along parallel tracks. We
+present a hierarchical model in which both datasets are conditioned on
+a movement process for a clearly-defined population. We fit the model
+to data from 60 camera traps and 23,572 GPS telemetry locations
+collected on 17 male white-tailed deer in the Big Cypress National
+Preserve, Florida, USA during July 2015. Telemetry data were collected
+on a 3-4 hr acquisition schedule, and we modeled the movement paths of
+all individuals in the region with a Ornstein-Uhlenbeck process that
+included individual-specific random effects. Two of the 17 deer with
+GPS collars were detected on cameras. An additional 20 male deer
+without collars were detected on cameras and individually identified
+based on their unique antler characteristics. Abundance was 126 (95\%
+CI: 88--177) in the 228 km$^2$ region---only slightly higher than
+estimated by a standard SCR model: 119 (84--168). The standard SCR
+model, however, was unable to describe individual heterogeneity in
+movement rates and space use as revealed by the joint model. Joint
+modeling allowed the telemetry data to inform the movement model and
+the SCR encounter model, while leveraging information in the camera
+data to inform abundance, distribution, and movement. Unlike most
+existing methods for population-level inference on movement, the joint
+SCR-movement model can yield unbiased inferences even if non-uniform
+sampling is used to deploy transmitters. Potential extensions of the
+model include the addition of resource selection parameters, and
+relaxation of the closure assumption when interest lies in survival
+and recruitment. These developments would contribute to the emerging
+holistic framework for the study of animal ecology---one that uses
+modern technology and spatio-temporal statistics to learn about
+interactions between behavior and demography. 
 %\end{onecolabstract}
 \end{abstract}
 
@@ -137,7 +134,7 @@ dynamics, spatio-temporal models, utilization distributions
 \section{Introduction}
 
 A fundamental challenge facing the study of animal populations is
-that the processes governing abundance and distribution -- %namely:
+that the processes governing abundance and distribution -- 
 survival, reproduction, and movement -- are highly interwoven and
 difficult to directly observe
 \citep{williams_etal:2002,royle_dorazio:2008}. Consequently, many
@@ -167,7 +164,6 @@ However, the development of movement models for telemetry data, and
 the development of distribution models for camera data
 have largely proceeded along parallel tracks, limiting the scope of
 inferences \citep{mcclintock_etal:2021}. 
-%\citep[but see][]{ergon_gardner:2014,raabe_etal:2014,schaub_royle:2014,dorazio_price:2019}. 
 
 Spatial capture-recapture (SCR) methods are widely used with camera
 data to study animal abundance and distribution. When animals can be
@@ -183,16 +179,9 @@ movement into SCR models involves substantial computational challenges
 therefore been on simple detection functions based on the distance
 between activity centers (i.e., the average location of an individual
 during the sampling period) and traps. Most SCR observation models
-% has been criticized \citep{ivan_etal:2013} because it implies
 imply that space usage is proportional to an isotropic bivariate normal
 distribution, and no serial correlation exists in detection events
 \citep[but see][for models implying anisotropic home ranges]{royle_etal:2013,royle_etal:2013mee,royle_etal:2016,chandler_etal:2018mee}.
-% The implications of these simplifying assumptions for inference on
-% abundance and distribution have only recently been investigated
-% \citep{royle_etal:2016}.  
-% Several SCR models have been developed for encounter history data and
-% telemetry data, but these models have not been used to draw inferences
-% about movement
 
 Movement models for telemetry data have proliferated in recent years
 in response to several factors, including technological developments,
@@ -213,26 +202,16 @@ estimate the parameters of an observation model describing how
 individuals enter the sample  
 \citep{tufto_etal:2012,gurarie_ovaskainen:2013,pedersen_weng:2013,raabe_etal:2014,mcclintock_etal:2021}.
 
-% A natural choice for describing how observation model describing how
 The limitations associated with independent analyses of
 capture-recapture and telemetry datasets in studies of 
 abundance, distribution, space use and movement have been recognized
 for many years \citep[pp. 534--535]{royle_etal:2014}.
-%the limitations associated with independent analyses of
-%capture-recapture and telemetry datasets. % for studying movement and
-%distribution provides a motivation for the development of joint models
-%for the two types of data \citep[pp. 534--535]{royle_etal:2014}. In
-%A joint analysis should not only improve inferences on important
-%population-level movement parameters,
 Jointly analyzing both sources of data by embedding a movement process
 in an SCR model should allow for improved population-level inference
 on movement while providing a more mechanistic description of the
 detection process that is key to understanding abundance and
-distribution. 
-%and thereby improve understanding of abundance and distribution even
-%if space use and movement are not of primary interest.
-We present an integrated model for camera and telemetry data 
-collected on white-tailed deer  ({\it Odocoileus virginianus}) in
+distribution. We present an integrated model for camera and telemetry
+data  collected on white-tailed deer  ({\it Odocoileus virginianus}) in
 Big Cypress National Preserve, USA where deer are the primary prey of
 the endangered Florida panther ({\it Puma concolor coryi}). 
 The objective of the research was to understand the effects of panther
@@ -251,29 +230,19 @@ capture-recapture models.
 As with standard SCR models, a point process is used for the 
 abundance and distribution of activity centers: $\bs_1, \dots, \bs_N$
 in the spatial region $\mathcal{M} \subset \mathbb{R}^2$
-(Table~\ref{tab:defs}). 
-%An activity center represents the expected location of an individual
-%during the time period of interest.
-Depending on the species, activity centers over the course of the
-survey might correspond to territory centers or %, or more generally, 
+(Table~\ref{tab:defs}). Depending on the species, activity centers
+over the course of the survey might correspond to territory centers or 
 home range centers. Both $N$ and $\bs_1, \dots, \bs_N$ are
 stochastic outcomes whose expected values are determined by an
 intensity function, $\lambda(\bs)$, describing the distribution of
 individuals in terms of spatial variation in the density of activity
-centers.
-%Modeling spatial variation in the density of
-%individuals (instead of activity centers) during a specific time
-%interval, moveme
-The expected value of abundance is given by  the volume under
-this surface 
-$E(N) = \Lambda = \int_{\mathcal{M}} \lambda(\bs) \, d\bs$.
+centers. The expected value of abundance is given by  the volume under
+this surface $E(N) = \Lambda = \int_{\mathcal{M}} \lambda(\bs) \, d\bs$.
 The density surface can be modeled as a function of spatial covariates
-or spatial random effects. 
-The realized value of abundance is
+or spatial random effects. The realized value of abundance is
 typically assumed to be $N \sim \mathrm{Pois}(\Lambda)$, although a
 binomial distribution is commonly used in Bayesian analyses involving
-data augmentation, % \citep{royle_etal:2007},
-as described in Sec.~\ref{ssec:n0}. 
+data augmentation, as described in Sec.~\ref{ssec:n0}. 
 
 
 \subsubsection{Movement}
@@ -283,12 +252,10 @@ modeled as a function of the distance between activity centers and
 traps, we impose a movement model, and assume that the encounter
 histories depend on the time-varying distance between individuals and
 traps. Although any movement model could be used in principle, we
-adopt %a discrete-time formulation of
-the Ornstein-Uhlenbeck (OU)
-process as it aligns well with SCR models in that it
-assumes each animal has its own activity center around which
-movement is concentrated. However, unlike most SCR models, the OU
-model describes serial correlation in animal locations
+adopt the Ornstein-Uhlenbeck (OU) process as it aligns well with SCR
+models in that it assumes each animal has its own activity center
+around which movement is concentrated. However, unlike most SCR
+models, the OU model describes serial correlation in animal locations
 ($\{{\bm \mu}_{it}\}$ for $i=1,\dots,N$ and $t=1,\dots,T$), and hence in
 detection events. For simplicity, we assume no measurement error in
 telemetry data ($\{\buit\}$), such that the observed 
@@ -305,51 +272,21 @@ a time interval, $e$ is the matrix exponential, and $\bf B$ and $\bm
 \citep{dunn_gipson:1977,blackwell:1997,blackwell_etal:2016}.
 A simplified, discrete-time version of Eq.~\ref{eq:ou-ct} can be
 derived by setting $h=1$ and assuming no covariance between the two
-position coordinates, such that
-%${\bm B} = \mathrm{diag}(-\beta)$ and
-${\bf B} = \rho \mathbf{I}$ and
-%${\bm \Sigma} = \mathrm{diag}(\sigma^2)$.
-${\bm \Sigma} = \sigma^2\mathbf{I}$. % where $\rho = \exp(-\beta)$.
+position coordinates, such that ${\bf B} = \rho \mathbf{I}$ and
+${\bm \Sigma} = \sigma^2\mathbf{I}$. 
 This formulation of the OU model is similar to a biased random walk, 
-% \citep{mcclintock_etal:2021}.
 with the parameters $\rho$ and $\sigma$ determining serial
 correlation between locations (Fig.~\ref{fig:ou-concept}). Note that
 if $\rho=0$, then the locations would be independent outcomes of
 a bivariate normal distribution with mean $\bsi$ and variance $\bm
 \Sigma$. At the other extreme, if $\rho=1$, then the variance would
 be 0 and the locations would be perfectly correlated (i.e, there would
-be no movement). 
-% The variance of the bivariate normal stationary
-% distribution (i.e., the utilization distribution) is $\sigma^2$.
-Variation in the parameters can be modeled as functions of 
+be no movement). Variation in the parameters can be modeled as functions of 
 covariates or as individual-specific random effects as we demonstrate
 in the case study.
 
 
 \subsubsection{Space use and utilization distributions}
-
-% Several options exist for estimating home range size from the
-% partially observed movement paths. These options can be categorized 
-% based on whether the focus is on the area containing the
-% \emph{realized} path or the area of the
-% % utlization distribution, which describes the
-% \emph{expected} locations.
-
-% Quantifying the area of the realized path is impossible because the
-% path itself has no width. However, many methods have been developed to
-% describe the area containing the path, with the minimum convex polygon
-% (MCP) method being among the most popular. In this context, the
-% MCP would include both observed and estimated locations along the
-% partially-observed movement path. In a Bayesian analysis, this would
-% involve computing the MCP for each posterior sample of the path,
-% thereby producing posterior distributions for the home range area of
-% each individual in the population. These posterior distributions of
-% home range size would naturally account for the area used, but not
-% observed to have been  used, between telemetry fixes. %No arbitrary
-%assumptions about bandwidth parameters would need to be made, as is
-%required by kernel density estimation approaches. Rather, the
-%``bridge'' between observed locations is imputed based upon the
-%parameters of the estimated movement model.
 
 The proposed modeling framework allows for inference on space use at
 multiple time scales. For example, the area used during the sampling
@@ -361,10 +298,7 @@ uncertainty about the movement path between observed telemetry
 locations. The probability distributions of these bridges describe
 the utilization distribution (UD) for the sampling period. 
 Space use can be computed for various quantiles of
-the UD, for example to assess the size of 50\% core areas. %Unlike
-%Brownian bridge models, the path between two locations depends on both
-%the telemetry data and the camera data (see below), and bridge
-%distribution is therefore not multivariate normal in general.
+the UD, for example to assess the size of 50\% core areas. 
 In practice, the utilization distribution can be approximated by
 applying a spatial histogram estimator or a kernel density estimator
 to posterior samples of the movement path. 
@@ -406,7 +340,6 @@ the encounter histories are time {intervals} spanning $(t,t+1)$.
 The expected frequency of detections is modeled as a function of
 the Euclidean distance between traps and animal locations:
 \begin{equation}
-  % p_{ijt} = 1-\exp(-g_0\exp(-\|\bx_{j}-\buit\|^2)/(2\sigma_{\rm det}^2))
   \lambda^{\rm det}_{ijt} = g_0\exp(-\|\bx_{j}-\buit\|^2)/(2\sigma_{\rm det}^2)
   \label{eq:p}
 \end{equation}
@@ -431,7 +364,7 @@ failures. Given that detection probability depends on these unobserved
 locations, they must be either estimated or marginalized out of the posterior
 distribution during model fitting (see Sec.~\ref{ssec:n0}).
 
-\subsubsection{Transmitter deployment process}% and non-uniform sampling}
+\subsubsection{Transmitter deployment process}
 \label{ssec:tr-deploy}
 
 Thus far, we have implicitly assumed that all 
@@ -463,14 +396,10 @@ data. For simplicity, assume that the spatial region $\mathcal{M}$ is
 uniformly searched, and the $N$ individuals are subject to capture on
 a single occasion with probability $p^{\rm cap}$. Let $n^{\rm cap}$ indicate
 the number of individuals captured and fitted with
-transmitters. Although there may be no recapture data, %and this
-% information would not be sufficient for estimating abundance,
+transmitters. Although there may be no recapture data, 
 the addition of the new parameter $p^{\rm cap}$ provide a mechanism
 for describing how individuals not detected by cameras appear in
-the camera-based encounter histories. Specifically, %we let $n$ denote
-%the number of individuals that were either captured during transmitter 
-%deployment or detected for the first time during the camera
-%survey. Then,
+the camera-based encounter histories. Specifically, 
 we add the model component: 
 $y^{\rm cap}_i \sim \mathrm{Bern}(p^{\rm cap})$ for the data from the
 transmitter deployment process, and we define $n$ as the number of
@@ -486,13 +415,6 @@ amounts to what has been called ``multi-method'' mark-recapture
 mark-resight models, except that here, we assume that all animals
 detected by cameras can be uniquely identified
 \citep{efford_hunter:2018,whittington_etal:2018}. 
-% Moreover, modeling
-% the transmitter deployment process makes it possible to  alleviate
-% bias arising from non-uniform inclusion probabilities, for example
-% when animals are easier to capture in more open habitats than in areas
-% with denser vegetation. All that is needed is to model $p^{\rm cap}$
-% as a function of covariates. 
-%% TODO: Elaborate
 
 \subsubsection{Individuals not detected}
 \label{ssec:n0}
@@ -505,26 +427,19 @@ individual that was never captured or detected on camera, which
 clearly is not possible. An additional model component is therefore
 needed to acknowledge the zero truncation. The traditional method for
 dealing with the $n_0=N-n$ unobserved, all-zero encounter histories is
-to use a multinomial likelihood in which %the number of individual not detected
+to use a multinomial likelihood in which 
 $n_0$ is treated as a continuous parameter. In the present case,
 the conditional multinomial density for the two types of encounter
 histories and the number of individuals not detected is: 
 
 \begin{multline}
-%  p(y^{\rm cap},y,n|\{\bu_{i1}, \dots, \bu_{iT}\}, \bsi, N) = \\
-%  p({\bm y}^{\rm cap},{\bm y},n|\{\bu_{it}\}, \{\bs_i\}, N) = \\
   p(\{ y_i^{\rm cap}\},\{ y_{ijt}\},n|\{\bu_{it}\}, \{\bs_i\}, N) = \\
-  % \Bigg(\frac{N!}{n_0!}\Bigg)\left(\prod_{i=1}^n
-  %   \mathrm{Bern}(y_i^{\rm cap}|p^{\rm cap}_i) \left\{\prod_{j=1}^J\prod_{k=1}^K
-  % \mathrm{Bern}(y_{ijk}|p_{ijk}) \right\}\right)
-  % \Bigg(1-p^*\Bigg)^{n_0}
   \left\{
   \prod_{i=1}^n
     \mathrm{Bern}(y_i^{\rm cap}|p^{\rm cap}_i) \left\{\prod_{j=1}^J\prod_{t=1}^T
   \mathrm{Bern}(y_{ijt}|\lambda^{\rm det}_{ijt}) \right\}\right\} \frac{N!}{(N-n)!} (1-p^*)^{N-n}
   \label{eq:multinom}
 \end{multline}
-%% TODO: Change form Bern to Pois
 where $p^*=1-(1-p^{\rm cap})q^*$ is the probability of encountering (either through the
 transmitter deployment process or by camera detection) an individual
 at least once. Computing $q^*$, the probability of not detecting an
@@ -543,8 +458,6 @@ integration. Either way, it is very computationally intensive, and it
 becomes infeasible if additional sources of individual variation are
 introduced, as the dimensionality of the integral grows with
 the sources of individual heterogeneity \citep{king_etal:2016}. 
-%Code is presented in Appendix XXX.
-%% TODO: Create appendix 
 
 Data augmentation is an alternative approach for dealing with the fact
 that $N$ is unknown \citep{royle_etal:2007}. Under data augmentation,
@@ -563,7 +476,6 @@ $\Pr(N=M) \approx 0$.
 
 The benefit of data augmentation is that it alleviates
 the need to compute $p^*$ directly,
-%which in this case Eq.~\ref{}, directly
 and it is a general framework that can be used with any mark-recapture
 model \citep{royle_dorazio:2008}. The downside is that MCMC sampling
 may be inefficient relative to methods that marginalize some of the
@@ -579,14 +491,8 @@ $p(\sum_j \sum_t y_{ijt}=0|\bsi,z_i) = \mathrm{Bern}(z_i \tilde{p}_i)$ where
 \end{equation}
 Unlike Eq.~\ref{eq:q-star}, this double integral (over the initial
 location and subsequent locations) can be localized to the area
-surrounding $\bsi$. %A comparison of the marginalization approaches is
-%provided in Appendix XXX. 
+surrounding $\bsi$. 
 
-%% TODO: Add appendix
-
-
-% \subsection{Computation}
-% \label{sec:comp}
 
 \subsection{Deer data}
 
@@ -622,13 +528,8 @@ We modeled the telemetry deployment process using a Bernoulli
 observation model with constant $p^{\rm cap}$ in a state-space
 $\mathcal M$ defined by a 5 km buffer around the camera grid.
 An effort was made to uniformly search this area during the aerial
-capture process. 
-% as described in Sec.~\ref{ssec:tr-deploy}.
-%We assumed $p^{\rm cap}$ was constant
-%because the open habitat conditions that permitted
-%aerial capture.
-We modeled the camera detection process using a Poisson observation
-model and the detection function shown in Eq.~\ref{eq:p}. 
+capture process. We modeled the camera detection process using a
+Poisson observation model and the detection function shown in Eq.~\ref{eq:p}. 
 
 We modeled movement using the OU model in Eq.~\ref{eq:ou-ct} with an
 hourly time increment (i.e. $h=1$) and an assumption of no covariance
@@ -652,16 +553,13 @@ The integral in Eq.~\ref{eq:p-tilde} was approximated using parallel
 computing and Monte Carlo integration within the Gibbs
 sampler \citep{bonner_schofield:2014}.
 Four Markov chains of length 110,000 were used for inference after
-discarding a burn-in of 1,000 iterations. Visual inspections were used
-to assess convergence. Estimates reported below are
-posterior means and 95\% CIs unless noted otherwise.
-A description of the joint posterior and the Gibbs sampler (Appendix
-S1), along with code and data, is available at
+discarding a burn-in of 1,000 iterations. One hundred sample points
+during each MCMC iteration were used for Monte Carlo
+integration. Visual inspections were used to assess
+convergence. Estimates reported below are posterior means and 95\% CIs
+unless noted otherwise. A description of the joint posterior and the
+Gibbs sampler (Appendix S1), along with code and data, is available at
 \url{https://github.com/rbchan/scr-move}.  
-
-% The online repository also includes a simple simulation study
-% assessing bias, variance, and coverage of the posterior mode as a
-% point estimator of abundance (Appendix S2).
 
 \subsection{Simulation study}
 
@@ -713,7 +611,6 @@ a constant one-hour time interval, we found that individuals averaged
 269 m/h, with the average ranging from 153--419 m/h, more than twice
 the observed rate. Variability in movement rates was also high within
 individuals, with an average SD of 154 (range: 84--242).
-%, which likely resulted from variation in bedding and foraging behavior.
 
 Consistent with large variation in movement rates 
 among individuals, home range size also varied greatly among
@@ -721,11 +618,10 @@ individuals. The variance parameters ($\{\sigma_i\}$) of the OU
 movement model ranged from 399--1075 (Fig.~\ref{fig:sigma}), resulting in
 predictions of long-term space use ranging from 3.0--15.5 km$^2$ for
 the 17 deer with GPS collars (Table \ref{tab:post},
-Fig.~\ref{fig:hr}). Estimates of 
-$\sigma_i$ were much more precise for deer with telemetry data,
-indicating SCR data provided little information about
-individual heterogeneity in space use. Space use estimates also varied
-considerably during the one-month period
+Fig.~\ref{fig:hr}). Estimates of $\sigma_i$ were much more precise for
+deer with telemetry data, indicating SCR data provided little
+information about individual heterogeneity in space use. Space use
+estimates also varied considerably during the one-month period
 (Fig.~\ref{fig:hr}). Variation in the size and shape of one-month
 utilization distributions was considerable and consistent with
 the expectations of the OU model
@@ -736,12 +632,6 @@ home ranges used a smaller fraction of the area (Fig.~\ref{fig:path-ud}a,b).
 On average, space use during the one-month period was typically less
 than half what it was predicted to be over the long-term (Fig.~\ref{fig:hr}). 
 
-% Telemetry data provided direct information about encounter rate. The
-% individuals who spent most of their time far from the cameras were
-% never detected. The two individuals with collars that were close to
-% the camera array evaded detection at some locations, even when they
-% were known to be within 100 m of a camera (Fig~\ref{fig:path-cam}).
-
 The SCR model including the explicit movement process fit the camera data
 much better (mean posterior deviance=442.5) than the basic SCR model
 (mean posterior deviance=1663.9), yet the two models yielded similar
@@ -750,12 +640,9 @@ estimates of abundance 126 (95\% CI:  88--177) versus 119 (84--168) in the
 model accounted for temporal variation in the expected values of 
 the encounter histories arising from the time-varying distances between
 individuals and cameras. The basic SCR model in contrast, predicted 
-time-invariant encounter rates. % as a simple function of the distance
-% between traps and activity centers. % Accounting for this source of
-% variation increased the estimate of abundance as expected, but the
-% reason for the slight changes was...
+time-invariant encounter rates. 
 
-The baseline encounter rate of $\lambda_0=0.952$ (Table~\ref{tab:post}) %(0.579--1.45)
+The baseline encounter rate of $\lambda_0=0.952$ (Table~\ref{tab:post}) 
 indicates that an individual in close proximity to a camera had a
 $0.614 = 1-\exp(-\lambda_0)$ probability of being detected at least
 once during the 1-hr interval. The scale
@@ -795,12 +682,12 @@ movement process in a spatial capture-recapture model is that it
 allows researchers to study individual-level heterogeneity in movement
 and space use, and scale inferences up to the population
 level. Scaling inferences about movement from the individual level to
-the population 
-level is even possible when transmitters deployment is not the outcome
-of uniformly sampling the population. Another benefit of the joint
-model is that the movement model can explain individual heterogeneity
-in the SCR encounter rate, but consistent with previous findings on
-the robustness of SCR \citep{efford_mowat:2014,royle_etal:2016},
+the population level is even possible when transmitters deployment is
+not the outcome of uniformly sampling the population. Another benefit
+of the joint model is that the movement model can explain individual
+heterogeneity in the SCR encounter rate, but consistent with previous
+findings on the robustness of SCR
+\citep{efford_mowat:2014,royle_etal:2016}, 
 accounting for this heterogeneity had little effect other than a
 slight increase in the estimate of abundance. 
 
@@ -900,8 +787,7 @@ telemetry data provide direct information about detection probability
 \citep{sollmann_etal:2013jae,sollmann_etal:2013ecol,murphy_etal:2019}.
 However, in our case, only two individuals 
 were detected on cameras and we saw little difference in posterior
-precision between the models with and without telemetry data. %Another
-%benefit of modeling detection conditional on location is that 
+precision between the models with and without telemetry data. 
 
 A limitation of the modeling approach is the computational burden
 arising from the need to integrate out the unobserved locations along
@@ -971,47 +857,39 @@ that improved the manuscript.
 %  \centering
   \begin{tabular}{p{3.5cm}cp{11cm}}
     \hline
-    Category & Symbol & Description \\
+    Category                & Symbol                    & Description                                                                       \\
     \hline
-    Abundance, distribution & & \\
-                          & $\lambda(\bs)$ & Intensity of the point process for activity centers \\
-                          & $\bsi$              & Activity center of individual $i$  \\
-                          & $N$                 & The number of individuals in the spatial region $\mathcal M \subset \mathbb{R}^2$ \\
-                          & $n$                 & The number of individuals captured and/or detected \\
-                          & $D$    & Density of activity centers in $\mathcal M$ \\
-    
-%                         & $\mathcal{M}$       & The spatial region within which the $N$                             \\
-                          & $z_i$               & Data augmentation indicator, $z_i \sim \mathrm{Bern}(\psi)$, $N=\sum_i z_i$                \\
-    Movement              &                     &                                                                     \\
-                          & $\buit$        & The location of individual $i$ at time $t$                          \\
-                          & $\rho$              & Auto-correlation of the Ornstein-Uhlenbeck (OU) process \\
-                          & $\sigma$ & Variance parameter of the OU movement model         \\
-    Capture, detection &                     &                                                                     \\
-                          & $y^{\rm cap}_i$      & Capture data for individual $i$ \\
-                          & $p^{\rm cap}$        & Capture probability                                                 \\
-                          & $\lambda_0$         & Baseline encounter rate                                             \\
-                          & $\sigma_{\rm det}$  & Scale parameter of SCR encounter rate function                      \\
-                          & $\lambda^{\rm det}_{ijt}$     & Encounter rate                                                      \\
-                          & $y_{ijt}$           & Encounter history for individual $i$ at trap $j$ on occasion $t$ \\
+    Abundance, distribution &                           &                                                                                   \\
+                            & $\lambda(\bs)$            & Intensity of the point process for activity centers                               \\
+                            & $\bsi$                    & Activity center of individual $i$                                                 \\
+                            & $N$                       & The number of individuals in the spatial region $\mathcal M \subset \mathbb{R}^2$ \\
+                            & $n$                       & The number of individuals captured and/or detected                                \\
+                            & $D$                       & Density of activity centers in $\mathcal M$                                       \\
+%                           & $\mathcal{M}$             & The spatial region within which the $N$                                           \\
+                            & $z_i$                     & Data augmentation indicator, $z_i \sim \mathrm{Bern}(\psi)$, $N=\sum_i z_i$       \\
+    Movement                &                           &                                                                                   \\
+                            & $\buit$                   & The location of individual $i$ at time $t$                                        \\
+                            & $\rho$                    & Auto-correlation of the Ornstein-Uhlenbeck (OU) process                           \\
+                            & $\sigma$                  & Variance parameter of the OU movement model                                       \\
+    Capture, detection      &                           &                                                                                   \\
+                            & $y^{\rm cap}_i$           & Capture data for individual $i$                                                   \\
+                            & $p^{\rm cap}$             & Capture probability                                                               \\
+                            & $\lambda_0$               & Baseline encounter rate                                                           \\
+                            & $\sigma_{\rm det}$        & Scale parameter of SCR encounter rate function                                    \\
+                            & $\lambda^{\rm det}_{ijt}$ & Encounter rate                                                                    \\
+                            & $y_{ijt}$                 & Encounter history for individual $i$ at trap $j$ on occasion $t$                  \\
     \hline
   \end{tabular}
   \label{tab:defs}
 \end{table}
 
-%\vfill
+
 \clearpage
 
 \begin{table}[h!]
   \centering
   \caption{Posterior summary statistics for the spatial
     capture-recapture movement model. Parameters are defined in Table~\ref{tab:defs}.
-    % : expected value of density, deer/km$^2$
-    % (E($D$)), realized value of abundance ($N$), autocorrelation parameter of
-    % movement model ($\rho$), mean and standard
-    % deviation of the log-normal distribution for ${\sigma_i}$,
-    % baseline encounter rate ($\lambda_0$), scale parameter of local
-    % detection function ($\sigma_{\rm det}$), and capture probability
-    % for telemetry deployment ($p_{\rm cap}$).
     Camera and telemetry data were collected on male white-tailed deer
     in South Florida, USA during July 2015.}
   \vspace{6pt}
