@@ -15,6 +15,10 @@
 \hypersetup{pdfstartview={Fit},hidelinks}
 
 
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
+
+
 \title{Ecology Appendix S2 \\ Simulation study accompanying the paper: \\ \it Modeling abundance, distribution, movement, and space
   use with camera and telemetry data}
 \author{Richard B. Chandler$^1$\footnote{Corresponding author: rchandler@warnell.uga.edu}, Daniel A. Crawford$^2$, Elina P. Garrison$^3$, \\
@@ -97,7 +101,7 @@ SCR+move model than for the mis-specified SCR0 model.
   \includegraphics[width=0.5\textwidth, trim=0mm 15mm 0mm 15mm, clip]{../R/sims/bias-N.pdf} \\
   \includegraphics[width=0.5\textwidth, trim=0mm 15mm 0mm 15mm, clip]{../R/sims/cover-N.pdf} \\
   \includegraphics[width=0.5\textwidth, trim=0mm 0mm 0mm 15mm, clip]{../R/sims/var-N.pdf}
-  \caption{Bias, 95\% CI coverage, and variance of the posterior mode
+  \caption{Figure S1. Bias, 95\% CI coverage, and variance of the posterior mode
     as a point estimator of population size ($N$) under five values of
     the parameter $\rho$ controlling autocorrelation in movement. The
     data generating value of abundance was $N=100$. } 
