@@ -3,6 +3,8 @@
  
 %\setmainfont{Times New Roman}
 
+
+
 \usepackage{newtxtext,newtxmath}
 
 
@@ -19,10 +21,13 @@
 \usepackage{setspace,caption}
 \captionsetup{font=doublespacing}% Double-spaced float captions
 
+%\usepackage[upright]{fourier}
+
 
 \bibliographystyle{ecology}
 \setlength{\bibsep}{0pt}
 
+\renewcommand\refname{Literature Cited}
 
 \hypersetup{pdfstartview={Fit},hidelinks}
 
@@ -58,19 +63,20 @@
 
 \begin{description}%[labelindent=1pt]%[leftmargin=1cm]%,labelwidth=\widthof{\bfseries Example:}]
 %  \large
-\item[$^1$] Warnell School of Forestry and Natural Resources, University of Georgia %\\
-\item[$^2$] Caesar Kleberg Wildlife Research Institute at Texas A\&M University-Kingsville %\\
-\item[$^3$] Florida Fish and Wildlife Conservation Commission %\\
+\item[$^1$] Warnell School of Forestry and Natural Resources, University of Georgia, Athens, GA 30602 %\\
+\item[$^2$] Caesar Kleberg Wildlife Research Institute at Texas A\&M University-Kingsville, Kingsville, TX 78363 %\\
+\item[$^3$] Florida Fish and Wildlife Conservation Commission, Gainesville, FL 32601 %\\
 \end{description}
 
 
 \vspace{24pt}
 
 Open Research: Data and code are publicly available at
-\url{https://github.com/rbchan/scr-move}. The current state of the
+%\url{https://github.com/rbchan/scr-move}. The current state of the
+\url{10.5281/zenodo.5167653}. The current state of the
 repository is attached as a zip file.  
 
-Running Head: Inference from camera and telemetry data
+Running Head: Special Feature: Linking capture–recapture and movement
 
 
 \clearpage
@@ -559,7 +565,8 @@ integration. Visual inspections were used to assess
 convergence. Estimates reported below are posterior means and 95\% CIs
 unless noted otherwise. A description of the joint posterior and the
 Gibbs sampler (Appendix S1), along with code and data, is available at
-\url{https://github.com/rbchan/scr-move}.  
+%\url{https://github.com/rbchan/scr-move}.  
+\url{10.5281/zenodo.5167653}.  
 
 \subsection{Simulation study}
 
@@ -582,7 +589,8 @@ movement) and a mis-specified SCR model with no movement
 process. Inference was made using 10,000 MCMC samples from the joint
 posterior following a 2,000 iteration burn-in. Code to reproduce the
 simulation study can be found at
-\url{https://github.com/rbchan/scr-move/R/sims}. 
+%\url{https://github.com/rbchan/scr-move/R/sims}. 
+\url{10.5281/zenodo.5167653}
 
 
 \section{Results}
@@ -843,6 +851,9 @@ that improved the manuscript.
 
 
 \bibliography{mybib}
+
+%\printbibliography[title={Reference}]
+
 
 
 \clearpage

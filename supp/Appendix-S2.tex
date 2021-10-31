@@ -53,8 +53,8 @@ deployment. The camera design in the simulation study was the same as
 in the deer example, with 60 cameras spaced by 200--500 m. We simulated
 90 occasions and used a fix rate of 1 location every 3
 occasions. Parameters (defined in the manuscript) were $N=100$,
-$p^{\mathrm cap}=0.25$, $\lambda_0=2$, $\sigma^{\mathrm det}=50$,
-$\sigma^{\mathrm move}=600$. We 
+$p^{\rm cap}=0.25$, $\lambda_0=2$, $\sigma^{{\rm det}}=50$,
+$\sigma^{\rm move}=600$. We 
 considered 5 scenarios in which the autocorrelation parameter ($\rho$)
 of the Ornstein-Uhlenbeck movement model was assigned values: 0.55,
 0.65, 0.75, 0.85, and 0.95. 
@@ -64,7 +64,7 @@ the data generating model (SCR-move) and a mis-specified SCR model
 (SCR0) with no movement process. Inference was made using 10,000 MCMC
 samples from the joint posterior following a 2,000 iteration
 burn-in. Code to reproduce the simulation study can be found at
-\url{https://github.com/rbchan/scr-move/R/sims}.
+\url{10.5281/zenodo.5167653}.
 
 % \begin{table}[h!]
 %   \centering
@@ -82,7 +82,8 @@ example, only a small fraction (ranging from 0--10) were detected by
 cameras. 
 
 Bias was reduced in all 5 cases when switching from the SCR0 model to
-the SCR-move model (Fig.~\ref{fig:bias}). Improvement in bias ranged
+%the SCR-move model (Fig.~\ref{fig:bias}). Improvement in bias ranged
+the SCR-move model (Figure S1). Improvement in bias ranged
 from 2--6\%. Bias of the SCR+move model was $\le2\%$ for the first two
 scenarios. For the other three scenarios (with 
 $\rho=$0.75, 0.85, and 0.95), bias of the SCR+move model was
@@ -90,7 +91,8 @@ $\rho=$0.75, 0.85, and 0.95), bias of the SCR+move model was
 error resulting from the small number of simulated datasets.
 Coverage of 95\% credible intervals was close to 0.95 for
 the SCR+move model in all scenarios and was better than the SCR0 model
-(Fig.~\ref{fig:bias}). Variance of the estimator was greater for the
+%(Fig.~\ref{fig:bias}). Variance of the estimator was greater for the
+(Figure S1). Variance of the estimator was greater for the
 SCR+move model than for the mis-specified SCR0 model.
 
 

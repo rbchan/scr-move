@@ -63,7 +63,8 @@ movement model (with constant $\sigma$ and data augmentation) is
     \right\}p(\buit|\bu_{i,t-1},\bsi,\rho,\sigma)\right\} %\times \\
   p(\bsi)p(z_i|\psi)\right\} \times \\
 p(p)p(\lambda_0)p(\sigma_{\rm det})p(\rho)p(\sigma)p(\psi) \\
-  \label{eq:post}
+%  \label{eq:post}
+%  \tag{S1}
 \end{multline}
 
 where
@@ -98,7 +99,7 @@ observed.
 Sampling from the joint posterior is computationally challenging
 because of the latent movement paths for the $M-n$ augmented
 individuals. The burden can be reduced by marginalizing these latent
-paths, while retaining the activity centers $\{\bsi\}$. This is
+paths while retaining the activity centers $\{\bsi\}$. This is
 accomplished using Eq. 6 in the manuscript and the probability density:
 \[
   p(0|\lambda_0,\sigma_{\rm det},\rho,\sigma,\bsi,z_i) = \mathrm{Bern}(0|\tilde{p}_i)
